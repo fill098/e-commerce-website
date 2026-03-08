@@ -1,4 +1,4 @@
-export default class CartUi {
+export default class CartUI {
   constructor(cart) {
     this.cart = cart;
     this.cartList = document.getElementById("cartList");
