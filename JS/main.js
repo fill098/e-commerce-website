@@ -2,7 +2,7 @@ import ProductService from "./services/ProductService.js";
 import UI from "./components/UI.js";
 import FilterManager from "./components/FilterMenager.js";
 import SearchManager from "./components/SearchManager.js";
-import Cart from "./components/Cart.js";
+import Cart from "./components/cart.js";
 
 const ui = new UI();
 const productService = new ProductService();
