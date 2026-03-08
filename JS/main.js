@@ -1,8 +1,8 @@
-import ProductService from "./services/ProductService.js";
 import UI from "./components/UI.js";
-import FilterManager from "./components/FilterMenager.js";
-import SearchManager from "./components/SearchManager.js";
+import FilterManager from "./components/filterMenager.js";
+import SearchManager from "./components/searchManager.js";
 import Cart from "./components/cart.js";
+import ProductService from "./services/productService.js";
 
 const ui = new UI();
 const productService = new ProductService();
