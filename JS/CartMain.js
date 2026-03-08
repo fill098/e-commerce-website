@@ -1,5 +1,5 @@
 import Cart from "./components/Cart.js";
-import CartUI from "./components/CartUi.js";
+import CartUI from "./components/CartUI.js";
 import Checkout from "./components/Checkout.js";
 
 const cart = new Cart();
