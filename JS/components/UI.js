@@ -4,6 +4,36 @@ export default class UI {
     this.productGrid = document.getElementById("resultsContainer");
   }
 
+  init(cart, products, onAddToCart) {
+    this.cart = cart;
+    this.products = products;
+    this.onAddToCart = onAddToCart;
+
+    this.productGrid.addEventListener("click", (e) => {
+      if (e.target.classList.contains("product-card__add-btn")) {
+        const card = e.target.closest(".product-card");
+        const id = +card.dataset.id;
+        this.addToCart(id, e.target);
+      }
+    });
+  }
+
+  addToCart(id, btn) {
+    const product = this.products.find((p) => p.id === id);
+    if (!product) return;
+    this.cart.addItem(product);
+    this.onAddToCart();
+
+    if (btn) {
+      btn.textContent = "Added! ✓";
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = "Add to Cart";
+        btn.disabled = false;
+      }, 1000);
+    }
+  }
+
   toggleSpinner(show) {
     if (show) {
       this.spinner.classList.remove("d-none");
@@ -30,7 +60,7 @@ export default class UI {
               <div class="stars">★★★★☆</div>
             </div>
             <p class="product-card__description text-muted text-sm">${p.description}</p>
-            <button class="product-card__add-btn" onclick="addToCart(${p.id})">
+            <button class="product-card__add-btn">
               Add to Cart
             </button>
           </div>
